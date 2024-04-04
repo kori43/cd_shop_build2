@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using static cd_shop.ClientWindowxaml;
 
 namespace cd_shop
 {
@@ -136,47 +137,50 @@ namespace cd_shop
 
         private void Btn_AddToCart_Click(object sender, RoutedEventArgs e)
         {
-            var selectedProduct = ProductsGrid.SelectedItem as Product;
-            if (selectedProduct != null)
+            Product selectedProduct = ProductsGrid.SelectedItem as Product;
+            if (selectedProduct == null)
             {
-                cart.Add(new CartItem
-                {
-                    ProductId = selectedProduct.ProductId,
-                    ProductName = selectedProduct.ProductName,
-                    Price = selectedProduct.Price,
-                });
+                MessageBox.Show("Выберите продукт для добавления в корзину.");
+                return;
             }
-            SaveCartToDatabase();
+
+
+            dataBase.openConnection();
+
+            string query = "INSERT INTO Cart (productName, price) " +
+                           "VALUES (@ProductName, @Price)";
+
+            using (SqlCommand command = new SqlCommand(query, dataBase.getConnection()))
+            {
+                command.Parameters.AddWithValue("@ProductName", selectedProduct.ProductName);
+                command.Parameters.AddWithValue("@Price", selectedProduct.Price);
+                command.ExecuteNonQuery();
+            }
+
+
             LoadCart();
+
         }
-        private bool SaveCartToDatabase()
-        {
-            try
-            {
+        //private void AddItemToCart(CartItem cartItem)
+        //{
 
-                dataBase.openConnection();
+        //    dataBase.openConnection();
 
-                foreach (var cartItem in cart)
-                {
-                    string query = "INSERT INTO Cart (productName, price) VALUES (@ProductName, @Price)";
-                    using (var command = new SqlCommand(query, dataBase.getConnection()))
-                    {
-                        command.Parameters.AddWithValue("@ProductName", cartItem.ProductName);
-                        command.Parameters.AddWithValue("@Price", cartItem.Price);
-                        command.ExecuteNonQuery();
-                    }
-                }
-                dataBase.closeConnection();
-                return true;
+        //    string query = "INSERT INTO Cart (productId, productName, price) " +
+        //                   "VALUES (@ProductId, @ProductName, @Price)";
 
-            }
-            catch (Exception ex)
-            {
+        //    using (SqlCommand command = new SqlCommand(query, dataBase.getConnection()))
+        //    {
+        //        // Параметры запроса
+        //        command.Parameters.AddWithValue("@ProductId", cartItem.ProductId);
+        //        command.Parameters.AddWithValue("@ProductName", cartItem.ProductName);
+        //        command.Parameters.AddWithValue("@Price", cartItem.Price);
+        //        command.ExecuteNonQuery();
+        //    }
 
-                Console.WriteLine("Ошибка при сохранении данных в базу данных: " + ex.Message);
-                return false;
-            }
-        }
+
+
+        //}
         private bool RemoveItemFromCart(int productId)
         {
             try
@@ -185,7 +189,7 @@ namespace cd_shop
                 var itemToRemove = cart.FirstOrDefault(item => item.ProductId == productId);
                 if (itemToRemove != null)
                 {
-                    cart.Remove(itemToRemove);                  
+                    cart.Remove(itemToRemove);
                     dataBase.openConnection();
                     string query = "DELETE FROM Cart WHERE ProductId = @ProductId";
                     using (var command = new SqlCommand(query, dataBase.getConnection()))
@@ -231,12 +235,12 @@ namespace cd_shop
             {
 
             }
-            public CartItem(int productId, string productName, decimal price)
-            {
-                ProductId = productId;
-                ProductName = productName;
-                Price = price;
-            }
+            //public CartItem(int productId, string productName, decimal price)
+            //{
+            //    ProductId = productId;
+            //    ProductName = productName;
+            //    Price = price;
+            //}
         }
 
     }
