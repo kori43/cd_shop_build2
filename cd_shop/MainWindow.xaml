@@ -1,0 +1,116 @@
+﻿<Window x:Class="cd_shop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cd_shop"
+        mc:Ignorable="d"
+        Title="Панель управления" Height="550" Width="1000" Background="#64AAD0" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" IsVisibleChanged="Window_IsVisibleChanged">
+    <Grid>
+        <Menu Height="40" VerticalAlignment="Top" Margin="0,0,0,0">
+            <MenuItem Header="Навигация" Height="40" Width="80" FontFamily="Arial" FontWeight="Bold">
+                <MenuItem x:Name="Registr" Header="Добавить пользователя" FontFamily="Arial" FontWeight="Bold" Click="Registr_Click"></MenuItem>
+                <MenuItem Header="Data" FontFamily="Arial" FontWeight="Bold"></MenuItem>
+                <MenuItem Header="Data" FontFamily="Arial" FontWeight="Bold"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <StackPanel Orientation="Vertical" Width="160" HorizontalAlignment="Left" Background="#086CA2" Margin="0,40,0,0">
+            <Label Content="Панель управления" FontFamily="Arial" FontSize="14" Foreground="White" HorizontalAlignment="Center" Margin="0,10,0,0" BorderBrush="Black" BorderThickness="1" Background="Blue"/>
+            <Button x:Name="NewText" Content="Создать запись" Height="60" Width="150" FontFamily="Arial" FontSize="18" Click="NewText_Click" Style="{StaticResource RoundButton}" Margin="0,10,0,0"/>
+            <Button x:Name="Btn_Back" Content="Выйти" Height="60" Width="150" FontFamily="Arial" FontSize="18" Click="Btn_Back_Click" Style="{StaticResource RoundButton}" Margin="0,10,0,0"/>
+        </StackPanel>
+
+        <TabControl Width="800" Height="480" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+            <TabItem Header="Товары">
+                <DataGrid x:Name="DGProducts" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Width="*" Binding="{Binding Path=productId}"/>
+                        <DataGridTextColumn Header="Имя продукта" Width="*" Binding="{Binding Path=productName}"/>
+                        <DataGridTextColumn Header="Издатель" Width="*" Binding="{Binding Path=Publisher.publisherName}"/>
+                        <DataGridTextColumn Header="Жанр" Width="*" Binding="{Binding Path=Genre.genreName}"/>
+                        <DataGridTextColumn Header="Категория" Width="*" Binding="{Binding Path=Category.categoryName}"/>
+                        <DataGridTextColumn Header="Цена" Width="*" Binding="{Binding Path=price}"/>
+                        <DataGridTextColumn Header="В наличии" Width="*" Binding="{Binding Path=count}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Редактировать" Name="BtnEdit" Click="Btn_Edit_Click" Width="auto"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить" x:Name="Btn_Delete" Click="Btn_Delete_Click" Width="auto"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Пользователи">
+                <DataGrid x:Name="DGUsers" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Width="*" Binding="{Binding Path=userId}"/>
+                        <DataGridTextColumn Header="Логин" Width="*" Binding="{Binding Path=userLogin}"/>
+                        <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding Path=userPassword}"/>
+                        <DataGridTextColumn Header="Роль" Width="*" Binding="{Binding Path=Role.role1}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить" x:Name="Btn_Delete2" Click="Btn_Delete2_Click" Width="auto"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Издатель">
+                <DataGrid x:Name="DGPublisher" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Width="*" Binding="{Binding Path=publisherId}"/>
+                        <DataGridTextColumn Header="Издатель" Width="*" Binding="{Binding Path=publisherName}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить" x:Name="Btn_Delete3" Click="Btn_Delete3_Click" Width="auto"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Жанр">
+                <DataGrid x:Name="DGGenre" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Width="*" Binding="{Binding Path=genreId}"/>
+                        <DataGridTextColumn Header="Жанр" Width="*" Binding="{Binding Path=genreName}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить" x:Name="Btn_Delete4" Click="Btn_Delete4_Click" Width="auto"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Категория">
+                <DataGrid x:Name="DGCategories" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="id" Width="*" Binding="{Binding Path=categoryId}"/>
+                        <DataGridTextColumn Header="категория" Width="*" Binding="{Binding Path=categoryName}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Удалить" x:Name="Btn_Delete5" Click="Btn_Delete5_Click" Width="auto"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

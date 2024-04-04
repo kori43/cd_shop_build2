@@ -1,0 +1,31 @@
+﻿<Window x:Class="cd_shop.sign_up"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cd_shop"
+        mc:Ignorable="d"
+        Title="Регистрация" Height="420" Width="600" Background="#64AAD0" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Width="600" Margin="0,10,0,17">
+        <Image HorizontalAlignment="Right" Height="104" Margin="10,10,10,10" VerticalAlignment="Top" Width="80" Source="/user.png" RenderTransformOrigin="0.260,0.410
+               "/>
+        <StackPanel Margin="10,95,430,0" Background="#086CA2">
+            <Button x:Name="Create" Content="Создать аккаунт" Width="150" Height="60" FontFamily="Arial" FontSize="18" Margin="0,20,0,10" Click="Create_Click" Style="{StaticResource RoundButton}"/>
+            <Button x:Name="Clear" Content="Очистить" Height="60" Width="150" FontFamily="Arial" FontSize="18" Click="Clear_Click" Style="{StaticResource RoundButton}"/>
+            <Button x:Name="Back" Content="Назад" Height="60" Width="150" FontFamily="Arial" FontSize="18" Margin="0,10,0,10" Click="Back_Click" Style="{StaticResource RoundButton}"/>
+        </StackPanel>
+
+        <StackPanel Margin="10,10,106,267" Background="#086CA2">
+            <Label Content="Регистрация" HorizontalAlignment="Left" Margin="172,26,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontStyle="Italic" FontSize="24" Foreground="White"/>
+        </StackPanel>
+        <StackPanel Margin="189,115,10,0">
+            <Label Content="Логин: " FontFamily="Arial" FontWeight="Bold" FontSize="16"/>
+            <TextBox x:Name="TextBox_login" Height="40" Width="350" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" UndoLimit="50"/>
+            <Label Content="Пароль: " FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="TextBox_password" Height="40" Width="350" HorizontalAlignment="Left" FontFamily="Arial" FontSize="16" FontWeight="Bold" UndoLimit="50"/>
+            <Label Content="Подтвердите пароль: " FontFamily="Arial" FontSize="16" FontWeight="Bold"/>
+            <TextBox x:Name="TextBox_passwordCheck" Height="40" Width="350" HorizontalAlignment="Left" FontSize="16" FontFamily="Arial" FontWeight="Bold" UndoLimit="50"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
