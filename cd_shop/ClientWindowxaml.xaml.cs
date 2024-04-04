@@ -162,12 +162,12 @@ namespace cd_shop
                     using (var command = new SqlCommand(query, dataBase.getConnection()))
                     {
                         command.Parameters.AddWithValue("@ProductName", cartItem.ProductName);
-                        command.Parameters.AddWithValue("@Price", cartItem.Price); 
+                        command.Parameters.AddWithValue("@Price", cartItem.Price);
                         command.ExecuteNonQuery();
                     }
                 }
                 dataBase.closeConnection();
-                return true; 
+                return true;
 
             }
             catch (Exception ex)
@@ -185,24 +185,22 @@ namespace cd_shop
                 var itemToRemove = cart.FirstOrDefault(item => item.ProductId == productId);
                 if (itemToRemove != null)
                 {
-                    cart.Remove(itemToRemove);
-                    using (var connection = dataBase.getConnection())
+                    cart.Remove(itemToRemove);                  
+                    dataBase.openConnection();
+                    string query = "DELETE FROM Cart WHERE ProductId = @ProductId";
+                    using (var command = new SqlCommand(query, dataBase.getConnection()))
                     {
-                        dataBase.openConnection();
-                        string query = "DELETE FROM Cart WHERE ProductId = @ProductId";
-                        using (var command = new SqlCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@ProductId", productId);
-                            command.ExecuteNonQuery();
-                        }
+                        command.Parameters.AddWithValue("@ProductId", productId);
+                        command.ExecuteNonQuery();
                     }
+
                     dataBase.closeConnection();
                     return true;
-                    
+
                 }
                 else
                 {
-                    return false; 
+                    return false;
                 }
             }
             catch (Exception ex)
