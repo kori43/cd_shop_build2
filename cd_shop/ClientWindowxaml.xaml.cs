@@ -102,7 +102,9 @@ namespace cd_shop
 
         private void Btn_Exit_Click(object sender, RoutedEventArgs e)
         {
-
+            log_in log_In = new log_in();
+            log_In.Show();
+            this.Close();
         }
 
         private void Btn_RemoveFromCart_Click(object sender, RoutedEventArgs e)
