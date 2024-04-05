@@ -187,8 +187,9 @@ namespace cd_shop
         private void Registr_Click(object sender, RoutedEventArgs e)
         {
             sign_up sign_Up = new sign_up();
+            sign_Up.Closed += (s, args) => { this.Show(); };
             sign_Up.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void GuestWindow_Click(object sender, RoutedEventArgs e)
