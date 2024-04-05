@@ -20,6 +20,7 @@ using System.Data.Entity;
 using System.Runtime.Remoting.Contexts;
 using System.Collections.ObjectModel;
 using System.Security.Policy;
+using cd_shop.AddPages;
 
 
 namespace cd_shop
@@ -187,6 +188,20 @@ namespace cd_shop
         {
             sign_up sign_Up = new sign_up();
             sign_Up.Show();
+            this.Close();
+        }
+
+        private void GuestWindow_Click(object sender, RoutedEventArgs e)
+        {
+            GuestWindowxaml guestWindowxaml = new GuestWindowxaml();
+            guestWindowxaml.Show();
+            this.Close();
+        }
+
+        private void AddDopInfo_Click(object sender, RoutedEventArgs e)
+        {
+            AddWindowTwo addWindowTwo = new AddWindowTwo();
+            addWindowTwo.Show();
             this.Close();
         }
     }

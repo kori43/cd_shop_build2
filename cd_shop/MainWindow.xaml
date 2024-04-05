@@ -10,8 +10,8 @@
         <Menu Height="40" VerticalAlignment="Top" Margin="0,0,0,0">
             <MenuItem Header="Навигация" Height="40" Width="80" FontFamily="Arial" FontWeight="Bold">
                 <MenuItem x:Name="Registr" Header="Добавить пользователя" FontFamily="Arial" FontWeight="Bold" Click="Registr_Click"></MenuItem>
-                <MenuItem Header="Data" FontFamily="Arial" FontWeight="Bold"></MenuItem>
-                <MenuItem Header="Data" FontFamily="Arial" FontWeight="Bold"></MenuItem>
+                <MenuItem x:Name="AddDopInfo" Header="Добавить доп. инфо." FontFamily="Arial" FontWeight="Bold" Click="AddDopInfo_Click"></MenuItem>
+                <MenuItem x:Name="GuestWindow" Header="Гостевое окно" FontFamily="Arial" FontWeight="Bold" Click="GuestWindow_Click"></MenuItem>
             </MenuItem>
         </Menu>
 

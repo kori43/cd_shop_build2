@@ -13,8 +13,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data.SqlClient;
-using static cd_shop.ClientWindowxaml;
 
 namespace cd_shop
 {
@@ -160,27 +158,7 @@ namespace cd_shop
 
             LoadCart();
 
-        }
-        //private void AddItemToCart(CartItem cartItem)
-        //{
-
-        //    dataBase.openConnection();
-
-        //    string query = "INSERT INTO Cart (productId, productName, price) " +
-        //                   "VALUES (@ProductId, @ProductName, @Price)";
-
-        //    using (SqlCommand command = new SqlCommand(query, dataBase.getConnection()))
-        //    {
-        //        // Параметры запроса
-        //        command.Parameters.AddWithValue("@ProductId", cartItem.ProductId);
-        //        command.Parameters.AddWithValue("@ProductName", cartItem.ProductName);
-        //        command.Parameters.AddWithValue("@Price", cartItem.Price);
-        //        command.ExecuteNonQuery();
-        //    }
-
-
-
-        //}
+        }       
         private bool RemoveItemFromCart(int productId)
         {
             try
@@ -235,12 +213,6 @@ namespace cd_shop
             {
 
             }
-            //public CartItem(int productId, string productName, decimal price)
-            //{
-            //    ProductId = productId;
-            //    ProductName = productName;
-            //    Price = price;
-            //}
         }
 
     }
