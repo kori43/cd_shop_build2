@@ -195,15 +195,17 @@ namespace cd_shop
         private void GuestWindow_Click(object sender, RoutedEventArgs e)
         {
             GuestWindowxaml guestWindowxaml = new GuestWindowxaml();
+            guestWindowxaml.Closed += (s, args) => { this.Show(); };
             guestWindowxaml.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void AddDopInfo_Click(object sender, RoutedEventArgs e)
         {
             AddWindowTwo addWindowTwo = new AddWindowTwo();
+            addWindowTwo.Closed += (s, args) => { this.Show(); };
             addWindowTwo.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
