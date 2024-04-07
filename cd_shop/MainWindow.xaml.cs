@@ -54,6 +54,12 @@ namespace cd_shop
             }
         }
 
+        public void SetUserInfo(int id, string login)
+        {
+            TextBox_UserId.Text = Convert.ToString(id);
+            TextBox_UserLogin.Text = login;
+        }
+
         private void Btn_Edit_Click(object sender, RoutedEventArgs e)
         {
             AddWindow addWindow = new AddWindow((sender as Button).DataContext as Product);

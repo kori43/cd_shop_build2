@@ -17,9 +17,6 @@ using System.Net;
 
 namespace cd_shop
 {
-    /// <summary>
-    /// Логика взаимодействия для log_in.xaml
-    /// </summary>
     public partial class log_in : Window
     {
         DataBase dataBase = new DataBase();
@@ -43,34 +40,48 @@ namespace cd_shop
             TextBox_password.Clear();
 
         }
+        private void GetUserId(int userId)
+        {
+            string queryForAnId = "SELECT userId FROM Users WHERE userId = @UserId";
+            dataBase.openConnection();
+            SqlCommand sqlCommand = new SqlCommand(queryForAnId, dataBase.getConnection());
+            sqlCommand.Parameters.AddWithValue("@UserId", userId);
+            object result = sqlCommand.ExecuteScalar();
+            if (result != null)
+            {
+                userId = Convert.ToInt32(result);
+            }
+        }
+
         private void BtnEnter_Click(object sender, RoutedEventArgs e)
         {
 
             string username = TextBox_login.Text;
             string password = TextBox_password.Password;
-
-            string query = "SELECT role_id FROM Users WHERE userLogin = @Username AND userPassword = @Password";
+            string query = "SELECT userId, role_id FROM Users WHERE userLogin = @Username AND userPassword = @Password";
 
             dataBase.openConnection();
 
             SqlCommand command = new SqlCommand(query, dataBase.getConnection());
+
             command.Parameters.AddWithValue("@Username", username);
             command.Parameters.AddWithValue("@Password", password);
 
-            try
+            SqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
             {
-                dataBase.openConnection();
-                object result = command.ExecuteScalar();
-
-                if (result != null)
+                int userId = reader.GetInt32(0);
+                int roleId = reader.GetInt32(1);
+                try
                 {
-                    int role = Convert.ToInt32(result);
-
-                    
-                    switch (role)
+                    dataBase.openConnection();
+                   
+                    switch (roleId)
                     {
                         case 1:
                             MainWindow mainWindow = new MainWindow();
+                            mainWindow.TextBox_UserLogin.Text = username;
+                            mainWindow.TextBox_UserId.Text = userId.ToString();
                             mainWindow.Show();
                             this.Close();
                             break;
@@ -79,52 +90,18 @@ namespace cd_shop
                             clientWindowxaml.Show();
                             this.Close();
                             break;
-                        
+
                         default:
                             MessageBox.Show("Некорректная роль пользователя.");
                             break;
                     }
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Неправильный логин или пароль.");
+                    MessageBox.Show("Ошибка авторизации: " + ex.Message);
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ошибка авторизации: " + ex.Message);
-            }
-
-
-
-            //var loginUser = TextBox_login.Text;
-            //var passwordUser = TextBox_password.Password;
-
-
-
-            //SqlDataAdapter adapter = new SqlDataAdapter();
-            //DataTable table = new DataTable();
-            //string querystring = $"select userId, userLogin, userPassword, role_id from Users where userLogin = '{loginUser}' and userPassword = '{passwordUser}'";
-
-            //SqlCommand command = new SqlCommand(querystring, dataBase.getConnection());
-            //adapter.SelectCommand = command;
-            //adapter.Fill(table);
-
-
-            //if (table.Rows.Count == 1)
-            //{
-
-            //    MessageBox.Show("Вы успешно вошли!", "Успешно!", MessageBoxButton.OK, MessageBoxImage.Information);
-            //    MainWindow mainWindow = new MainWindow();
-            //    mainWindow.Show();
-            //    this.Close();
-
-            //}
-
-            //else
-            //{
-            //    MessageBox.Show("Такого аккаунта не существует!", "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
 
         }
 
