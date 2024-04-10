@@ -60,9 +60,7 @@ namespace cd_shop
             {
                 CDstoreEntities2.GetContext().SaveChanges();
                 MessageBox.Show("Информация сохранена!");
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                Close();
             }
             catch (Exception ex)
             {
@@ -88,11 +86,6 @@ namespace cd_shop
             this.Close();
         }
 
-        private void AdminPage_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-        }
+
     }
 }

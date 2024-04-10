@@ -21,6 +21,7 @@ namespace cd_shop
         public int categoryId { get; set; }
         public decimal price { get; set; }
         public Nullable<int> count { get; set; }
+        public string EditedBy { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Genre Genre { get; set; }

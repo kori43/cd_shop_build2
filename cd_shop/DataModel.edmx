@@ -38,6 +38,7 @@
           <Property Name="categoryId" Type="int" Nullable="false" />
           <Property Name="price" Type="money" Nullable="false" />
           <Property Name="count" Type="int" />
+          <Property Name="EditedBy" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Publisher">
           <Key>
@@ -186,6 +187,7 @@
           <Property Name="categoryId" Type="Int32" Nullable="false" />
           <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="count" Type="Int32" />
+          <Property Name="EditedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Products_Genre" FromRole="Products" ToRole="Genre" />
           <NavigationProperty Name="Publisher" Relationship="Self.FK_Products_Publisher" FromRole="Products" ToRole="Publisher" />
@@ -341,6 +343,7 @@
                 <ScalarProperty Name="categoryId" ColumnName="categoryId" />
                 <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

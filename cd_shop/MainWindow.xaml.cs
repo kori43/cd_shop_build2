@@ -29,16 +29,15 @@ namespace cd_shop
     {
         public MainWindow()
         {
-            InitializeComponent();
-            
-
+            InitializeComponent();            
         }
 
-        private void NewText_Click(object sender, RoutedEventArgs e)
+        private void AddWindow_Click(object sender, RoutedEventArgs e)
         {
             AddWindow addWindow = new AddWindow(null);
+            addWindow.Closed += (s, args) => { this.Show(); };
             addWindow.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
@@ -62,9 +61,22 @@ namespace cd_shop
 
         private void Btn_Edit_Click(object sender, RoutedEventArgs e)
         {
+            //string editedBy = TextBox_UserLogin.Text;
+            //Product product = (Product)DGProducts.SelectedItem;
+            //product.EditedBy = editedBy;
+            //DGProducts.Items.Refresh();
+            Product selectedProduct = DGProducts.SelectedItem as Product;
+            if(selectedProduct != null)
+            {
+                selectedProduct.EditedBy = TextBox_UserLogin.Text;
+                CDstoreEntities2.GetContext().Products.Attach(selectedProduct);
+                CDstoreEntities2.GetContext().Entry(selectedProduct).Property(p => p.EditedBy).IsModified = true;
+                CDstoreEntities2.GetContext().SaveChanges();
+            }
             AddWindow addWindow = new AddWindow((sender as Button).DataContext as Product);
+            addWindow.Closed += (s, args) => { this.Show(); };
             addWindow.Show();
-            this.Close();
+            this.Hide();
         }
 
 

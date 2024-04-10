@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2e8140e2e12a47b784febf230718c404" Name="Diagram1">
-        <EntityTypeShape EntityType="CDstoreModel.Cart" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CDstoreModel.Category" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CDstoreModel.Genre" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+      <Diagram DiagramId="b2c71767f4f94911bd5714f0af690389" Name="Diagram1">
+        <EntityTypeShape EntityType="CDstoreModel.Cart" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDstoreModel.Category" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDstoreModel.Genre" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CDstoreModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CDstoreModel.Publisher" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CDstoreModel.Role" Width="1.5" PointX="2.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CDstoreModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CDstoreModel.User" Width="1.5" PointX="5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDstoreModel.Publisher" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDstoreModel.Role" Width="1.5" PointX="5.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDstoreModel.sysdiagram" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CDstoreModel.User" Width="1.5" PointX="8" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="CDstoreModel.FK_Products_Categories" ManuallyRouted="false" />
         <AssociationConnector Association="CDstoreModel.FK_Products_Genre" ManuallyRouted="false" />
         <AssociationConnector Association="CDstoreModel.FK_Products_Publisher" ManuallyRouted="false" />
