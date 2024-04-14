@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Data.SqlClient;
-using System.Data;
-using System.Net;
+using System.Windows;
+using System.Windows.Input;
 
 namespace cd_shop
 {
@@ -25,15 +13,12 @@ namespace cd_shop
             InitializeComponent();
 
         }
-
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             sign_up sign_Up = new sign_up();
             sign_Up.Show();
             this.Close();
         }
-
-
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
             TextBox_login.Text = "";
@@ -52,7 +37,6 @@ namespace cd_shop
                 userId = Convert.ToInt32(result);
             }
         }
-
         private void BtnEnter_Click(object sender, RoutedEventArgs e)
         {
 
@@ -75,14 +59,14 @@ namespace cd_shop
                 try
                 {
                     dataBase.openConnection();
-                   
+
                     switch (roleId)
                     {
                         case 1:
-                            MainWindow mainWindow = new MainWindow();
-                            mainWindow.TextBox_UserLogin.Text = username;
-                            mainWindow.TextBox_UserId.Text = userId.ToString();
-                            mainWindow.Show();
+                            AdminWindow adminWindow = new AdminWindow();
+                            adminWindow.TextBox_UserLogin.Text = username;
+                            adminWindow.TextBox_UserId.Text = userId.ToString();
+                            adminWindow.Show();
                             this.Close();
                             break;
                         case 2:
@@ -104,7 +88,6 @@ namespace cd_shop
             }
 
         }
-
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             GuestWindowxaml Guestwindow = new GuestWindowxaml();

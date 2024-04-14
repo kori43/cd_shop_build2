@@ -1,4 +1,4 @@
-﻿<Window x:Class="cd_shop.MainWindow"
+﻿<Window x:Class="cd_shop.AdminWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -28,7 +28,7 @@
             <TextBox x:Name="TextBox_UserLogin" Margin="10" IsReadOnly="True"/>
         </StackPanel>
 
-        <TabControl Width="800" Height="480" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+        <TabControl Width="800" Height="460" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
             <TabItem Header="Товары">
                 <DataGrid x:Name="DGProducts" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>

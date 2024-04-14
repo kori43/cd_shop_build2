@@ -7,16 +7,15 @@
         mc:Ignorable="d"
         Title="Регистрация" Height="420" Width="600" Background="#64AAD0" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Width="600" Margin="0,10,0,17">
-        <Image HorizontalAlignment="Right" Height="104" Margin="10,10,10,10" VerticalAlignment="Top" Width="80" Source="/user.png" RenderTransformOrigin="0.260,0.410
-               "/>
+        <Image HorizontalAlignment="Right" Height="90" Margin="5,5,17,5" VerticalAlignment="Top" Width="90" Source="/Pictures/registration_pic.png"/>
         <StackPanel Margin="10,95,430,0" Background="#086CA2">
             <Button x:Name="Create" Content="Создать аккаунт" Width="150" Height="60" FontFamily="Arial" FontSize="18" Margin="0,20,0,10" Click="Create_Click" Style="{StaticResource RoundButton}"/>
             <Button x:Name="Clear" Content="Очистить" Height="60" Width="150" FontFamily="Arial" FontSize="18" Click="Clear_Click" Style="{StaticResource RoundButton}"/>
             <Button x:Name="Back" Content="Назад" Height="60" Width="150" FontFamily="Arial" FontSize="18" Margin="0,10,0,10" Click="Back_Click" Style="{StaticResource RoundButton}"/>
         </StackPanel>
 
-        <StackPanel Margin="10,10,106,267" Background="#086CA2">
-            <Label Content="Регистрация" HorizontalAlignment="Left" Margin="172,26,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontStyle="Italic" FontSize="24" Foreground="White"/>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10" Width="480" Height="80" Background="#086CA2">
+            <Label Content="Регистрация" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontStyle="Italic" FontSize="24" Foreground="White" Margin="0,25,0,0"/>
         </StackPanel>
         <StackPanel Margin="189,115,10,0">
             <Label Content="Логин: " FontFamily="Arial" FontWeight="Bold" FontSize="16"/>

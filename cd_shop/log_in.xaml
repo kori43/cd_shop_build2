@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="Авторизация" Height="420" Width="600" Background="#64AAD0" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid Width="600" Margin="0,10,0,17">
-        <Image HorizontalAlignment="Left" Height="80" Margin="494,10,0,0" VerticalAlignment="Top" Width="80" Source="/user.png" RenderTransformOrigin="0.259,0.413"/>
+        <Image HorizontalAlignment="Right" Height="80" Margin="5,5,17,5" VerticalAlignment="Top" Width="80" Source="/Pictures/user.png"/>
         <StackPanel Margin="10,95,430,0" Background="#086CA2">
             <Button x:Name="Create" Content="Новый аккаунт" Click="BtnCreate_Click" Width="150" Height="60" FontFamily="Arial" FontSize="18" Margin="0,20,0,10" Style="{StaticResource RoundButton}"/>
             <Button x:Name="Enter" Content="Войти" Click="BtnEnter_Click" Width="150" Height="60" FontFamily="Arial" FontSize="18" RenderTransformOrigin="0.304,0.567" Margin="0,0,0,10" Style="{StaticResource RoundButton}"/>
             <Button x:Name="Clear" Content="Очистить" Click="BtnClear_Click" Height="60" Width="150" FontFamily="Arial" FontSize="18" Style="{StaticResource RoundButton}"/>
             <TextBlock Text="Гостевой вход" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,10,10" FontFamily="Arial" FontSize="20" TextDecorations="Underline" MouseDown="TextBlock_MouseDown"/>
         </StackPanel>
-        <StackPanel Margin="10,10,106,267" Background="#086CA2">
-            <Label Content="Авторизация" HorizontalAlignment="Left" Margin="172,26,0,0" VerticalAlignment="Top" FontFamily="Arial" FontWeight="Bold" FontStyle="Italic" FontSize="24" Foreground="White"/>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left" Width="490" Height="80" Margin="10" Background="#086CA2">
+            <Label Content="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Arial" FontWeight="Bold" FontStyle="Italic" FontSize="24" Foreground="White" Margin="0,25,0,0"/>
         </StackPanel>
         <StackPanel Margin="189,115,10,0">
             <Label Content="Логин: " FontFamily="Arial" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>

@@ -14,11 +14,9 @@
                             </ContentPresenter>
                         </Grid>
                     </ControlTemplate>
-
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style TargetType="Button" x:Key="RoundButton">
             <Setter Property="Background" Value="#FFBF73"/>
             <Setter Property="BorderBrush" Value="Black"/>

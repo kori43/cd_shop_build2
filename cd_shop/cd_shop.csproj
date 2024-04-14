@@ -76,7 +76,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClientWindowxaml.xaml.cs">
+    <Compile Include="RolePages\ClientWindowxaml.xaml.cs">
       <DependentUpon>ClientWindowxaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="DataModel.Context.cs">
@@ -97,7 +97,7 @@
     <Compile Include="Genre.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="GuestWindowxaml.xaml.cs">
+    <Compile Include="RolePages\GuestWindowxaml.xaml.cs">
       <DependentUpon>GuestWindowxaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="log_in.xaml.cs">
@@ -129,11 +129,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ClientWindowxaml.xaml">
+    <Page Include="RolePages\ClientWindowxaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GuestWindowxaml.xaml">
+    <Page Include="RolePages\GuestWindowxaml.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -141,7 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="RolePages\AdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -150,8 +150,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataBase.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="RolePages\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="sign_up.xaml">
@@ -194,7 +194,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="user.png" />
+    <Resource Include="Pictures\user.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -210,6 +210,7 @@
       <DependentUpon>DataModel.edmx</DependentUpon>
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Pictures\registration_pic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

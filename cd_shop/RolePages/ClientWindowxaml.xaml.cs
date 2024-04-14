@@ -1,31 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace cd_shop
 {
-    /// <summary>
-    /// Логика взаимодействия для ClientWindowxaml.xaml
-    /// </summary>
     public partial class ClientWindowxaml : Window
     {
         DataBase dataBase = new DataBase();
         private ObservableCollection<Product> products = new ObservableCollection<Product>();
         private ObservableCollection<CartItem> cart = new ObservableCollection<CartItem>();
-
-
         public ClientWindowxaml()
         {
             InitializeComponent();
@@ -33,13 +18,11 @@ namespace cd_shop
             ProductsGrid.ItemsSource = products;
             CartGrid.ItemsSource = cart;
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadCart();
             LoadProducts();
         }
-
         public void LoadProducts()
         {
             try
@@ -71,7 +54,6 @@ namespace cd_shop
                 MessageBox.Show("Ошибка при загрузке товаров: " + ex.Message);
             }
         }
-
         public void LoadCart()
         {
             try
@@ -99,14 +81,12 @@ namespace cd_shop
                 MessageBox.Show("Ошибка при загрузке корзины: " + ex.Message);
             }
         }
-
         private void Btn_Exit_Click(object sender, RoutedEventArgs e)
         {
             log_in log_In = new log_in();
             log_In.Show();
             this.Close();
         }
-
         private void Btn_RemoveFromCart_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -134,7 +114,6 @@ namespace cd_shop
                 MessageBox.Show("Ошибка при удалении товара из корзины: " + ex.Message);
             }
         }
-
         private void Btn_AddToCart_Click(object sender, RoutedEventArgs e)
         {
             Product selectedProduct = ProductsGrid.SelectedItem as Product;
@@ -160,7 +139,7 @@ namespace cd_shop
 
             LoadCart();
 
-        }       
+        }
         private bool RemoveItemFromCart(int productId)
         {
             try
@@ -193,8 +172,6 @@ namespace cd_shop
                 return false;
             }
         }
-
-
         public class Product
         {
             public int ProductId { get; set; }
@@ -205,7 +182,6 @@ namespace cd_shop
             public decimal Price { get; set; }
             public int Count { get; set; }
         }
-
         public class CartItem
         {
             public int ProductId { get; set; }
@@ -216,7 +192,6 @@ namespace cd_shop
 
             }
         }
-
     }
 }
 

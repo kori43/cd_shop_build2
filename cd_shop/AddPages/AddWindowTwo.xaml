@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cd_shop.AddPages"
         mc:Ignorable="d"
-        Title="AddWindowTwo" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Окно добавления новой записи" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#64AAD0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -30,7 +30,6 @@
         <Menu Height="40" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <MenuItem Header="Навигация" Height="40" Width="80" FontFamily="Arial" FontWeight="Bold">
                 <MenuItem x:Name="ProductAdd" Header="Добавить продукт" FontFamily="Arial" FontWeight="Bold" Click="ProductAdd_Click"></MenuItem>
-                <MenuItem x:Name="AdminPage" Header="Админ панель" FontFamily="Arial" FontWeight="Bold" Click="AdminPage_Click"></MenuItem>
             </MenuItem>
         </Menu>
         <Button x:Name="Save" Content="Сохранить" Grid.Column="2" Width="200" Height="50" FontSize="18" Margin="10" HorizontalAlignment="Center" Grid.Row="4" Click="Save_Click" Style="{StaticResource RoundButton}"/>
