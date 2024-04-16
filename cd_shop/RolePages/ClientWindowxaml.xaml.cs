@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
+using cd_shop.Classes;
 
 namespace cd_shop
 {
@@ -36,13 +37,13 @@ namespace cd_shop
                 {
                     Product product = new Product
                     {
-                        ProductId = Convert.ToInt32(reader["productId"]),
-                        ProductName = reader["productName"].ToString(),
-                        PublisherId = Convert.ToInt32(reader["publisherId"]),
-                        GenreId = Convert.ToInt32(reader["genreId"]),
-                        CategoryId = Convert.ToInt32(reader["categoryId"]),
-                        Price = Convert.ToDecimal(reader["price"]),
-                        Count = Convert.ToInt32(reader["count"])
+                        productId = Convert.ToInt32(reader["productId"]),
+                        productName = reader["productName"].ToString(),
+                        publisherId = Convert.ToInt32(reader["publisherId"]),
+                        genreId = Convert.ToInt32(reader["genreId"]),
+                        categoryId = Convert.ToInt32(reader["categoryId"]),
+                        price = Convert.ToDecimal(reader["price"]),
+                        count = Convert.ToInt32(reader["count"])
                     };
                     products.Add(product);
                 }
@@ -131,8 +132,8 @@ namespace cd_shop
 
             using (SqlCommand command = new SqlCommand(query, dataBase.getConnection()))
             {
-                command.Parameters.AddWithValue("@ProductName", selectedProduct.ProductName);
-                command.Parameters.AddWithValue("@Price", selectedProduct.Price);
+                command.Parameters.AddWithValue("@ProductName", selectedProduct.productName);
+                command.Parameters.AddWithValue("@Price", selectedProduct.price);
                 command.ExecuteNonQuery();
             }
 
@@ -170,26 +171,6 @@ namespace cd_shop
             {
                 Console.WriteLine("Ошибка при удалении элемента из корзины: " + ex.Message);
                 return false;
-            }
-        }
-        public class Product
-        {
-            public int ProductId { get; set; }
-            public string ProductName { get; set; }
-            public int PublisherId { get; set; }
-            public int GenreId { get; set; }
-            public int CategoryId { get; set; }
-            public decimal Price { get; set; }
-            public int Count { get; set; }
-        }
-        public class CartItem
-        {
-            public int ProductId { get; set; }
-            public string ProductName { get; set; }
-            public decimal Price { get; set; }
-            public CartItem()
-            {
-
             }
         }
     }

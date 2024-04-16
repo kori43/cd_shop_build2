@@ -76,6 +76,8 @@
     <Compile Include="Category.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Classes\CartItem.cs" />
+    <Compile Include="Classes\Product.cs" />
     <Compile Include="RolePages\ClientWindowxaml.xaml.cs">
       <DependentUpon>ClientWindowxaml.xaml</DependentUpon>
     </Compile>
@@ -100,7 +102,7 @@
     <Compile Include="RolePages\GuestWindowxaml.xaml.cs">
       <DependentUpon>GuestWindowxaml.xaml</DependentUpon>
     </Compile>
-    <Compile Include="log_in.xaml.cs">
+    <Compile Include="Authorization\log_in.xaml.cs">
       <DependentUpon>log_in.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
@@ -112,7 +114,7 @@
     <Compile Include="Role.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="sign_up.xaml.cs">
+    <Compile Include="Authorization\sign_up.xaml.cs">
       <DependentUpon>sign_up.xaml</DependentUpon>
     </Compile>
     <Compile Include="sysdiagram.cs">
@@ -137,7 +139,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="log_in.xaml">
+    <Page Include="Authorization\log_in.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,12 +151,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataBase.cs" />
+    <Compile Include="Classes\DataBase.cs" />
     <Compile Include="RolePages\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="sign_up.xaml">
+    <Page Include="Authorization\sign_up.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
