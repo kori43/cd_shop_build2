@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 
 
+
 namespace cd_shop
 {
     public partial class AdminWindow : Window
