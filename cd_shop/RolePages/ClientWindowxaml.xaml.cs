@@ -24,7 +24,7 @@ namespace cd_shop
             LoadCart();
             LoadProducts();
         }
-        public void LoadProducts()
+        private void LoadProducts()
         {
             try
             {
@@ -55,7 +55,7 @@ namespace cd_shop
                 MessageBox.Show("Ошибка при загрузке товаров: " + ex.Message);
             }
         }
-        public void LoadCart()
+        private void LoadCart()
         {
             try
             {
