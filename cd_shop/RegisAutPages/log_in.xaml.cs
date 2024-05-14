@@ -86,6 +86,10 @@ namespace cd_shop
                     MessageBox.Show("Ошибка авторизации: " + ex.Message);
                 }
             }
+            else
+            {
+                MessageBox.Show("Такого аккаунта не существует!", "Ошибка");
+            }
 
         }
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
