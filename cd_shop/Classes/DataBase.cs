@@ -4,7 +4,7 @@ namespace cd_shop
 {
     internal class DataBase
     {
-        SqlConnection sqlConnection = new SqlConnection(@"Data Source=;Initial Catalog=CDstore;Integrated Security=True");
+        SqlConnection sqlConnection = new SqlConnection(@"Initial Catalog=CDstore;Integrated Security=True");
         public void openConnection()
         {
             if (sqlConnection.State == System.Data.ConnectionState.Closed)
